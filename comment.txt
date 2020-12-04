@@ -1,0 +1,17 @@
+DAY 1 //Kamis, 3 Desember 2020
+
+- Dalam menginstal tailwindcss diperlukan beberapa dependensi khusus. Laravel 8 yang didalamnya terdapat laravel mix versi 5.0.1 tidak compatible dengan postCss 8. Jadi harus menggunakan postCss 7.
+See : https://tailwindcss.com/docs/installation#post-css-7-compatibility-build
+Langkah:
+    1. npm install tailwindcss@latest postcss@latest autoprefixer@latest
+    2. npm run dev
+    3. require('tailwindcss') di webpack.mix.js
+    4. Include di resources/app/app.css.
+        @tailwind base;
+        @tailwind components;
+        @tailwind utilities;
+    5. npm run dev
+
+- Ketika membuat controller untuk mendaftar (RegisterController).
+    1. Pada bagian validate terdapat parameter messages. Dalam message untuk mempermudah konfirmasi password, maka atribut nama di tag input yang dimaksud harus diberi postfix _confirmation.
+    Matched: required|confirmed && name="password_confirmation"
